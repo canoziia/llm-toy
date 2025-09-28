@@ -96,12 +96,12 @@ class App(Cmd):
         except Exception as e:
             self.poutput(f"[ERROR] {e}")
 
-    def do_exit(self):
+    def do_exit(self, arg):
         """退出 shell"""
         self.poutput("Bye!")
         return True
 
-    def do_EOF(self):
+    def do_EOF(self, arg):
         """Ctrl-D 退出 shell"""
         self.poutput("Bye!")
         return True
