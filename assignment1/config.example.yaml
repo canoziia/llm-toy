@@ -1,0 +1,5 @@
+llm:
+  default:
+    model: your-model-name
+    api_base: https://api.example.com/v1
+    api_key: sk-xxx
