@@ -10,5 +10,6 @@ curl -fsSL https://pixi.sh/install.sh | sh
 
 ```bash
 cp config.example.yaml config.yaml
+pixi run install-deps
 pixi run start
 ```
