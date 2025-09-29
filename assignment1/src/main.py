@@ -6,11 +6,9 @@ import time
 import asyncio
 import threading
 import subprocess
+
 import yaml
-
 import cmd2
-from cmd2 import Cmd
-
 from llama_index.core import Settings
 from llama_index.core.agent.workflow import ReActAgent
 from llama_index.core.llms import ChatMessage
@@ -33,9 +31,10 @@ llm_default = OpenAILike(
 Settings.llm = llm_default
 
 
-class App(Cmd):
+class App(cmd2.Cmd):
     """
-    一个简单的命令行交互 shell，用户可以输入问题与 LLM 交流。"""
+    一个简单的命令行交互 shell，用户可以输入问题与 LLM 交流。
+    """
 
     intro = (
         "欢迎使用 LLM shell。直接输入问题即可与 LLM 交流。输入 'exit' 或 Ctrl-D 退出。"
@@ -83,8 +82,9 @@ class App(Cmd):
                 "--browser",
                 "firefox",
             ],
+            start_new_session=True,
             stdout=subprocess.DEVNULL,
-            # stderr=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
 
     def create_agent(self):
